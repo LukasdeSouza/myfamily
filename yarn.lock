@@ -2236,6 +2236,11 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.46.0.tgz#3f7802972e8b6fe3f88ed1aabc74ec596c456db6"
   integrity sha512-a8TLtmPi8xzPkCbp/OGFUo5yhRkHM2Ko9kOWP4znJr0WAhWyThaw3PnwX4vOTWOAMsV2uRt32PPDcEz63esSaA==
 
+"@fontsource/poppins@^5.0.7":
+  version "5.0.7"
+  resolved "https://registry.yarnpkg.com/@fontsource/poppins/-/poppins-5.0.7.tgz#ea071eb0d85c071a25056c0eae74643a15292ef2"
+  integrity sha512-IYFKAY63agukU8y8POfiutQJe95czWNSgZ4sY/CQDcGXzEtrTr3vwKg2Z/1v/PQnd7RoGvLK6ufjoXUayvSK4w==
+
 "@humanwhocodes/config-array@^0.11.10":
   version "0.11.10"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.10.tgz#5a3ffe32cc9306365fb3fd572596cd602d5e12d2"

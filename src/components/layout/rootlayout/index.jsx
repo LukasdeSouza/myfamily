@@ -1,8 +1,12 @@
 import React from 'react'
+import CustomDrawer from '../../drawer'
 
-const RootLayout = () => {
+const RootLayout = ({ children }) => {
   return (
-    <div>RootLayout</div>
+    <div>
+      <CustomDrawer />
+      {children}
+    </div>
   )
 }
 

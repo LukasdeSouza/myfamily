@@ -1,7 +1,9 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import '@fontsource/poppins'
 import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SignInPage from './pages/auth/signin';
 import SignUpPage from './pages/auth/signup';
+import HomePage from './pages/home';
 
 function App() {
   return (
@@ -9,6 +11,8 @@ function App() {
       <Routes>
         <Route path='/auth/signin' element={<SignInPage />} />
         <Route path='/auth/signup' element={<SignUpPage />} />
+
+        <Route path='/home' element={<HomePage />} />
       </Routes>
     </BrowserRouter>
   );
