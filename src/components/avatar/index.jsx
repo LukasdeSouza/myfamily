@@ -7,7 +7,6 @@ const CustomAvatar = () => {
     <Avatar
       size={'sm'}
       bgColor={'green.300'}
-      cursor={'pointer'}
       icon={<LinkIcon />}
     >
       <AvatarBadge
