@@ -35,7 +35,7 @@ const CustomDrawer = () => {
           <Menu>
             <MenuButton
               as={IconButton}
-              size={'sm'}
+              size={'xs'}
               height={3}
               rightIcon={<ChevronDownIcon />}
             />
