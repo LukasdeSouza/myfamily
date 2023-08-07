@@ -1,5 +1,5 @@
 import { Avatar, AvatarBadge, Button, Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, HStack, Icon, IconButton, Menu, MenuButton, MenuItem, MenuList, Stack, Text, VStack, useDisclosure } from '@chakra-ui/react'
-import { ArrowRightIcon, AttachmentIcon, ChatIcon, ChevronDownIcon, LinkIcon, SmallAddIcon, } from '@chakra-ui/icons'
+import { ArrowRightIcon, AttachmentIcon, BellIcon, ChatIcon, ChevronDownIcon, LinkIcon, SmallAddIcon, } from '@chakra-ui/icons'
 import React from 'react'
 import CustomAvatar from '../avatar'
 import { useNavigate } from 'react-router-dom'
