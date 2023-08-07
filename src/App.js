@@ -10,6 +10,7 @@ import ChatPage from './pages/chat';
 import PhotosPage from './pages/photos';
 import LandingPage from './pages/landingpage';
 import Page404 from './pages/404';
+import ProfilePage from './pages/profile';
 
 
 function App() {
@@ -25,6 +26,8 @@ function App() {
         <Route path='/renda' element={<IncomePage />} />
         <Route path='/chat' element={<ChatPage />} />
         <Route path='/fotos' element={<PhotosPage />} />
+
+        <Route path='/perfil' element={<ProfilePage />} />
 
         <Route path='*' element={<Page404 />} />
 

@@ -40,8 +40,18 @@ const CustomDrawer = () => {
               rightIcon={<ChevronDownIcon />}
             />
             <MenuList>
-              <MenuItem>Perfil</MenuItem>
-              <MenuItem>Sair</MenuItem>
+              <MenuItem
+                fontWeight={300}
+                fontSize={'sm'}
+                onClick={() => navigate('/perfil')}
+              >
+                Perfil
+              </MenuItem>
+              <MenuItem
+                fontWeight={300}
+                fontSize={'sm'}>
+                Sair
+              </MenuItem>
             </MenuList>
           </Menu>
         </HStack>
