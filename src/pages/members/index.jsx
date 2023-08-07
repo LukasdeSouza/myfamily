@@ -3,12 +3,14 @@ import { mockMembers } from '../../utils/mocks'
 import RootLayout from '../../components/layout/rootlayout'
 import { Box, Button, ButtonGroup, Card, CardBody, CardFooter, CardHeader, Divider, Image, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Stack, Text, Wrap, WrapItem, useDisclosure } from '@chakra-ui/react'
 import { DeleteIcon, EditIcon } from '@chakra-ui/icons'
+import { toast } from 'react-hot-toast'
 
 const MembersPage = () => {
   // const { isOpen, onOpen, onClose } = useDisclosure()
   const [members, setMembers] = useState([...mockMembers])
   const [member, setMember] = useState({})
   const [isOpen, setIsOpen] = useState(false)
+  const [confirmDelete, setConfirmDelete] = useState(false)
 
   const onClickEdit = (member) => {
     console.log(member)
@@ -31,7 +33,17 @@ const MembersPage = () => {
       newMembers.splice(membersToRemove, 1);
       return newMembers;
     });
+    onCloseModal()
+    toast.success('Membro Removido com Sucesso!')
   };
+
+  const handleConfirmDelete = () => {
+    setConfirmDelete(true)
+
+    setTimeout(() => {
+      setConfirmDelete(false)
+    }, [1500])
+  }
 
 
   return (
@@ -121,16 +133,31 @@ const MembersPage = () => {
           </ModalBody>
 
           <ModalFooter>
-            <Button
-              colorScheme='red'
-              mr={3}
-              fontSize='sm'
-              fontWeight='300'
-              bgColor='red.400'
-              onClick={() => onClickDelete(member.id)}
-            >
-              Remover
-            </Button>
+            {
+              confirmDelete ?
+                <Button
+                  colorScheme='red'
+                  mr={3}
+                  fontSize='sm'
+                  fontWeight='300'
+                  bgColor='red.400'
+                  onClick={() => onClickDelete(member.id)}
+                >
+                  Confirmar Remoção ?
+                </Button>
+                :
+                <Button
+                  colorScheme='red'
+                  mr={3}
+                  fontSize='sm'
+                  fontWeight='300'
+                  bgColor='red.400'
+                  onClick={() => handleConfirmDelete()}
+                >
+                  Remover
+                </Button>
+            }
+
             <Button
               variant='ghost'
               fontSize='sm'
