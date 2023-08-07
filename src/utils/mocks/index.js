@@ -5,30 +5,30 @@ import daughterSVG from '../../assets/daughter.svg'
 
 const mockMembers = [
   {
-    id: 1,
+    id: 0,
     img: fatherSVG,
-    name: "Membro Teste",
+    name: "Membro Pai",
     description: "Membro da família etc etc etc",
     type: "Father",
   },
   {
-    id: 2,
+    id: 1,
     img: motherSVG,
-    name: "Membro Teste 2",
+    name: "Membro Mãe 2",
     description: "Membro da família tec tec tec",
     type: "Mother",
   },
   {
-    id: 3,
+    id: 2,
     img: sonSVG,
-    name: "Membro Teste 3",
+    name: "Membro Filho 3",
     description: "Membro da família tec tec tec",
     type: "Son",
   },
   {
-    id: 4,
+    id: 3,
     img: daughterSVG,
-    name: "Membro Teste 4",
+    name: "Membro Filha 4",
     description: "Membro da família tec tec tec",
     type: "Daughter",
   }
