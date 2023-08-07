@@ -10,6 +10,8 @@ const mockMembers = [
     name: "Membro Pai",
     description: "Membro da família etc etc etc",
     type: "Pai",
+    dateOfBirth: "12/06/1985",
+    profession: 'Professor'
   },
   {
     id: 1,
@@ -17,6 +19,8 @@ const mockMembers = [
     name: "Membro Mãe 2",
     description: "Membro da família tec tec tec",
     type: "Mãe",
+    dateOfBirth: "12/06/1985",
+    profession: 'Professora'
   },
   {
     id: 2,
@@ -24,6 +28,9 @@ const mockMembers = [
     name: "Membro Filho 3",
     description: "Membro da família tec tec tec",
     type: "Filho",
+    dateOfBirth: "12/06/1985",
+    profession: 'Estudante'
+
   },
   {
     id: 3,
@@ -31,6 +38,8 @@ const mockMembers = [
     name: "Membro Filha 4",
     description: "Membro da família tec tec tec",
     type: "Filha",
+    dateOfBirth: "12/06/1985",
+    profession: 'Estudante'
   }
 ]
 

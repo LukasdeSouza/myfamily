@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { mockMembers } from '../../utils/mocks'
 import RootLayout from '../../components/layout/rootlayout'
-import { Box, Button, ButtonGroup, Card, CardBody, CardFooter, CardHeader, Divider, Image, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Stack, Text, Wrap, WrapItem, useDisclosure } from '@chakra-ui/react'
+import { Box, Button, ButtonGroup, Card, CardBody, CardFooter, CardHeader, Divider, Image, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Stack, Text, Wrap, WrapItem, useDisclosure } from '@chakra-ui/react'
 import { DeleteIcon, EditIcon } from '@chakra-ui/icons'
 
 const MembersPage = () => {
@@ -84,7 +84,7 @@ const MembersPage = () => {
                         // onClick={onOpen}
                         onClick={() => handleOpen(member)}
                       >
-                        Editar
+                        Visualizar
                       </Button>
                       <Button
                         variant='ghost'
@@ -113,20 +113,32 @@ const MembersPage = () => {
           <ModalHeader fontSize='md'>{member?.name}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Text>{member?.description}</Text>
+            <Stack spacing={1}>
+              <Text fontSize='sm'>{member?.description}</Text>
+              <Text fontSize='smaller'>{member?.dateOfBirth}</Text>
+              <Text fontSize='smaller'>{member?.profession}</Text>
+            </Stack>
           </ModalBody>
 
           <ModalFooter>
             <Button
-              colorScheme='blue'
+              colorScheme='red'
               mr={3}
               fontSize='sm'
               fontWeight='300'
-              onClick={() => console.log('ok')}
+              bgColor='red.400'
+              onClick={() => onClickDelete(member.id)}
             >
-              Salvar
+              Remover
             </Button>
-            <Button variant='ghost' fontSize='sm' fontWeight='300'>Fechar</Button>
+            <Button
+              variant='ghost'
+              fontSize='sm'
+              fontWeight='300'
+              onClick={onCloseModal}
+            >
+              Fechar
+            </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
