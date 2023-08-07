@@ -2,10 +2,11 @@ import { Avatar, AvatarBadge, Button, Drawer, DrawerBody, DrawerContent, DrawerH
 import { ArrowRightIcon, AttachmentIcon, ChatIcon, ChevronDownIcon, LinkIcon, SmallAddIcon, } from '@chakra-ui/icons'
 import React from 'react'
 import CustomAvatar from '../avatar'
+import { useNavigate } from 'react-router-dom'
 
 const CustomDrawer = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-
+  const navigate = useNavigate()
   const FAMILY_NAME = 'ABC'
 
   return (
@@ -63,24 +64,28 @@ const CustomDrawer = () => {
             <Stack spacing={3}>
               <HStack spacing={2}>
                 <IconButton
+                  onClick={() => navigate('/membros')}
                   icon={<LinkIcon color={'green.300'} />}
                 />
                 <Text fontSize={'md'}>Membros</Text>
               </HStack>
               <HStack spacing={2}>
                 <IconButton
+                  onClick={() => navigate('/renda')}
                   icon={<SmallAddIcon color={'green.300'} />}
                 />
                 <Text fontSize={'md'}>Renda</Text>
               </HStack>
               <HStack spacing={2}>
                 <IconButton
+                  onClick={() => navigate('/chat')}
                   icon={<ChatIcon color={'green.300'} />}
                 />
                 <Text fontSize={'md'}>Chat</Text>
               </HStack>
               <HStack spacing={2}>
                 <IconButton
+                  onClick={() => navigate('/fotos')}
                   icon={<AttachmentIcon color={'green.300'} />}
                 />
                 <Text fontSize={'md'}>Fotos</Text>
