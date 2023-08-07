@@ -1,11 +1,27 @@
 import React, { useState } from 'react'
 import { mockMembers } from '../../utils/mocks'
 import RootLayout from '../../components/layout/rootlayout'
-import { Box, Button, ButtonGroup, Card, CardBody, CardFooter, CardHeader, Divider, Image, Stack, Text, Wrap, WrapItem } from '@chakra-ui/react'
+import { Box, Button, ButtonGroup, Card, CardBody, CardFooter, CardHeader, Divider, Image, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Stack, Text, Wrap, WrapItem, useDisclosure } from '@chakra-ui/react'
 import { DeleteIcon, EditIcon } from '@chakra-ui/icons'
 
 const MembersPage = () => {
+  // const { isOpen, onOpen, onClose } = useDisclosure()
   const [members, setMembers] = useState([...mockMembers])
+  const [member, setMember] = useState({})
+  const [isOpen, setIsOpen] = useState(false)
+
+  const onClickEdit = (member) => {
+    console.log(member)
+  }
+
+  const handleOpen = (member) => {
+    setMember(member)
+    setIsOpen(true)
+  }
+
+  const onCloseModal = () => {
+    setIsOpen(false)
+  }
 
   const onClickDelete = (idToRemove) => {
     setMembers((prevMembers) => {
@@ -65,6 +81,8 @@ const MembersPage = () => {
                         fontSize='sm'
                         fontWeight='light'
                         leftIcon={<EditIcon />}
+                        // onClick={onOpen}
+                        onClick={() => handleOpen(member)}
                       >
                         Editar
                       </Button>
@@ -89,6 +107,29 @@ const MembersPage = () => {
           }
         </Wrap>
       </Stack>
+      <Modal isOpen={isOpen} onClose={onCloseModal}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader fontSize='md'>{member?.name}</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Text>{member?.description}</Text>
+          </ModalBody>
+
+          <ModalFooter>
+            <Button
+              colorScheme='blue'
+              mr={3}
+              fontSize='sm'
+              fontWeight='300'
+              onClick={() => console.log('ok')}
+            >
+              Salvar
+            </Button>
+            <Button variant='ghost' fontSize='sm' fontWeight='300'>Fechar</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </RootLayout>
   )
 }

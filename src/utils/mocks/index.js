@@ -9,28 +9,28 @@ const mockMembers = [
     img: fatherSVG,
     name: "Membro Pai",
     description: "Membro da família etc etc etc",
-    type: "Father",
+    type: "Pai",
   },
   {
     id: 1,
     img: motherSVG,
     name: "Membro Mãe 2",
     description: "Membro da família tec tec tec",
-    type: "Mother",
+    type: "Mãe",
   },
   {
     id: 2,
     img: sonSVG,
     name: "Membro Filho 3",
     description: "Membro da família tec tec tec",
-    type: "Son",
+    type: "Filho",
   },
   {
     id: 3,
     img: daughterSVG,
     name: "Membro Filha 4",
     description: "Membro da família tec tec tec",
-    type: "Daughter",
+    type: "Filha",
   }
 ]
 
