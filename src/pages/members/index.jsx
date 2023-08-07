@@ -1,12 +1,21 @@
 import React from 'react'
 import { mockMembers } from '../../utils/mocks'
 import RootLayout from '../../components/layout/rootlayout'
-import { Avatar, Box, Button, ButtonGroup, Card, CardBody, CardFooter, CardHeader, Divider, HStack, Heading, Image, Stack, Text, Wrap, WrapItem } from '@chakra-ui/react'
+import { Avatar, Box, Button, ButtonGroup, Card, CardBody, CardFooter, CardHeader, Divider, HStack, Heading, Highlight, Image, Stack, Text, Wrap, WrapItem } from '@chakra-ui/react'
 import { DeleteIcon, EditIcon } from '@chakra-ui/icons'
 
 const MembersPage = () => {
   return (
     <RootLayout>
+      <Text
+        fontSize={'2xl'}
+        color={'green.500'}
+        padding={4}
+        fontWeight={600}
+        textAlign={'center'}
+      >
+        Hall da familia
+      </Text>
       <Stack direction='row' justify={'center'}>
         <Wrap spacing={3}>
           {mockMembers.map((member) => (
