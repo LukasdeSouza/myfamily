@@ -11,6 +11,7 @@ import PhotosPage from './pages/photos';
 import LandingPage from './pages/landingpage';
 import Page404 from './pages/404';
 import ProfilePage from './pages/profile';
+import ForgotPasswordPage from './pages/forgotPassword';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path='/' element={<LandingPage />} />
         <Route path='/auth/signin' element={<SignInPage />} />
         <Route path='/auth/signup' element={<SignUpPage />} />
+        <Route path='/auth/forgot-password' element={<ForgotPasswordPage />} />
 
         <Route path='/home' element={<HomePage />} />
         <Route path='/membros' element={<MembersPage />} />

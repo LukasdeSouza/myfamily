@@ -22,8 +22,10 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from '@chakra-ui/icons'
+import { useNavigate } from 'react-router-dom'
 
 export default function NavBarLandingPage() {
+  const navigate = useNavigate()
   const { isOpen, onToggle } = useDisclosure()
 
   return (
@@ -67,7 +69,9 @@ export default function NavBarLandingPage() {
           justify={'flex-end'}
           direction={'row'}
           spacing={6}>
-          <Button as={'a'} fontSize={'sm'} fontWeight={400} variant={'link'} href={'#'}>
+          <Button as={'a'} fontSize={'sm'} fontWeight={400} variant={'link'}
+            onClick={() => navigate('/auth/signin')}
+          >
             Login
           </Button>
           <Button
@@ -76,11 +80,13 @@ export default function NavBarLandingPage() {
             fontSize={'sm'}
             fontWeight={600}
             color={'white'}
-            bg={'pink.400'}
+            bg={'green.400'}
             href={'#'}
             _hover={{
-              bg: 'pink.300',
-            }}>
+              bg: 'green.300',
+            }}
+            onClick={() => navigate('/auth/signup')}
+          >
             Cadastro
           </Button>
         </Stack>
@@ -236,15 +242,15 @@ const MobileNavItem = ({ label, children, href }) => {
 
 const NAV_ITEMS = [
   {
-    label: 'Inspiration',
+    label: 'Inspiração',
     children: [
       {
-        label: 'Explore Design Work',
+        label: 'Explore Inspirações para a Família',
         subLabel: 'Trending Design to inspire you',
         href: '#',
       },
       {
-        label: 'New & Noteworthy',
+        label: 'Novo na Plataforma',
         subLabel: 'Up-and-coming Designers',
         href: '#',
       },
@@ -266,11 +272,11 @@ const NAV_ITEMS = [
     ],
   },
   {
-    label: 'Learn Design',
+    label: 'Sobre Nós',
     href: '#',
   },
   {
-    label: 'Hire Designers',
+    label: 'Preços',
     href: '#',
   },
 ]

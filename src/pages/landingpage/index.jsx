@@ -78,7 +78,7 @@ export default function LandingPage() {
               }}>
               Começar
             </Button>
-            <Button variant={'link'} colorScheme={'blue'} size={'sm'}>
+            <Button variant={'link'} colorScheme={'gray'} size={'sm'}>
               Saiba Mais
             </Button>
             <Box>
