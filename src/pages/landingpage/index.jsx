@@ -10,8 +10,15 @@ import {
   Icon,
   useColorModeValue,
   createIcon,
+  Divider,
 } from '@chakra-ui/react'
 import { FcAssistant, FcDonate, FcInTransit } from 'react-icons/fc'
+import NavBarLandingPage from '../../components/navbar-lp'
+import SimpleThreeColumns from '../../components/grid'
+import FooterComponent from '../../components/footer'
+import GridComponent from '../../components/grid'
+import FeatureComponent from '../../components/feature'
+import PricingComponent from '../../components/plans'
 
 const Feature = ({ title, text, icon }) => {
   return (
@@ -36,6 +43,7 @@ const Feature = ({ title, text, icon }) => {
 export default function LandingPage() {
   return (
     <>
+      <NavBarLandingPage />
       <Container maxW={'3xl'}>
         <Stack
           as={Box}
@@ -95,31 +103,11 @@ export default function LandingPage() {
           </Stack>
         </Stack>
       </Container>
-      <Box p={4}>
-        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
-          <Feature
-            icon={<Icon as={FcAssistant} w={10} h={10} />}
-            title={'Lifetime Support'}
-            text={
-              'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...'
-            }
-          />
-          <Feature
-            icon={<Icon as={FcDonate} w={10} h={10} />}
-            title={'Unlimited Donations'}
-            text={
-              'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...'
-            }
-          />
-          <Feature
-            icon={<Icon as={FcInTransit} w={10} h={10} />}
-            title={'Instant Delivery'}
-            text={
-              'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...'
-            }
-          />
-        </SimpleGrid>
-      </Box>
+      <Divider />
+      <FeatureComponent />
+      <GridComponent />
+      <PricingComponent />
+      <FooterComponent />
     </>
   )
 }

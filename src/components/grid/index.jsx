@@ -1,55 +1,105 @@
-
+import {
+  Box,
+  Button,
+  Container,
+  Flex,
+  Heading,
+  Icon,
+  Stack,
+  Text,
+  useColorModeValue,
+} from '@chakra-ui/react'
 import { ReactElement } from 'react'
-import { Box, SimpleGrid, Icon, Text, Stack, Flex } from '@chakra-ui/react'
-import { FcAssistant, FcDonate, FcInTransit } from 'react-icons/fc'
+import {
+  FcAbout,
+  FcBusinesswoman,
+  FcSelfie,
+  FcButtingIn,
+  FcManager,
+} from 'react-icons/fc'
 
 
-const Feature = ({ title, text, icon }) => {
+
+const Card = ({ heading, description, icon, href }) => {
   return (
-    <Stack>
-      <Flex
-        w={16}
-        h={16}
-        align={'center'}
-        justify={'center'}
-        color={'white'}
-        rounded={'full'}
-        bg={'gray.100'}
-        mb={1}>
-        {icon}
-      </Flex>
-      <Text fontWeight={600}>{title}</Text>
-      <Text color={'gray.600'}>{text}</Text>
-    </Stack>
+    <Box
+      maxW={{ base: 'full', md: '275px' }}
+      w={'full'}
+      borderWidth="1px"
+      borderRadius="lg"
+      overflow="hidden"
+      p={5}>
+      <Stack align={'start'} spacing={2}>
+        <Flex
+          w={16}
+          h={16}
+          align={'center'}
+          justify={'center'}
+          color={'white'}
+          rounded={'full'}
+          bg={useColorModeValue('gray.100', 'gray.700')}>
+          {icon}
+        </Flex>
+        <Box mt={2}>
+          <Heading size="md">{heading}</Heading>
+          <Text mt={1} fontSize={'sm'}>
+            {description}
+          </Text>
+        </Box>
+        <Button variant={'link'} colorScheme={'blue'} size={'sm'}>
+          Learn more
+        </Button>
+      </Stack>
+    </Box>
   )
 }
 
-export default function SimpleThreeColumns() {
+export default function GridComponent() {
   return (
     <Box p={4}>
-      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
-        <Feature
-          icon={<Icon as={FcAssistant} w={10} h={10} />}
-          title={'Lifetime Support'}
-          text={
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...'
-          }
-        />
-        <Feature
-          icon={<Icon as={FcDonate} w={10} h={10} />}
-          title={'Unlimited Donations'}
-          text={
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...'
-          }
-        />
-        <Feature
-          icon={<Icon as={FcInTransit} w={10} h={10} />}
-          title={'Instant Delivery'}
-          text={
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...'
-          }
-        />
-      </SimpleGrid>
+      <Stack spacing={4} as={Container} maxW={'3xl'} textAlign={'center'}>
+        <Heading fontSize={{ base: '2xl', sm: '4xl' }} fontWeight={'bold'}>
+          Todos em um só lugar
+        </Heading>
+        <Text color={'gray.600'} fontSize={{ base: 'sm', sm: 'lg' }}>
+          Reuna toda a família em só ambiente afim de agendar eventos, bater papo, controlar as finanças e salvar fotos. Lembrando que todos os membros cadastrados podem acessar de onde quiser.
+        </Text>
+      </Stack>
+
+      <Container maxW={'5xl'} mt={12}>
+        <Flex flexWrap="wrap" gridGap={6} justify="center">
+          <Card
+            heading={'Pai'}
+            icon={<Icon as={FcManager} w={10} h={10} />}
+            description={'Lorem ipsum dolor sit amet catetur, adipisicing elit.'}
+            href={'#'}
+          />
+          <Card
+            heading={'Mãe'}
+            icon={<Icon as={FcBusinesswoman} w={10} h={10} />}
+            description={'Lorem ipsum dolor sit amet catetur, adipisicing elit.'}
+            href={'#'}
+          />
+          <Card
+            heading={'Filho'}
+            icon={<Icon as={FcButtingIn} w={10} h={10} />}
+            description={'Lorem ipsum dolor sit amet catetur, adipisicing elit.'}
+            href={'#'}
+          />
+          <Card
+            heading={'Filha'}
+            icon={<Icon as={FcSelfie} w={10} h={10} />}
+            description={'Lorem ipsum dolor sit amet catetur, adipisicing elit.'}
+            href={'#'}
+          />
+          <Card
+            heading={'Outros'}
+            icon={<Icon as={FcAbout} w={10} h={10} />}
+            description={'Lorem ipsum dolor sit amet catetur, adipisicing elit.'}
+            href={'#'}
+          />
+        </Flex>
+      </Container>
     </Box>
   )
 }
