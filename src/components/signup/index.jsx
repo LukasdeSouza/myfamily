@@ -29,10 +29,10 @@ export default function SignUpComponent() {
       <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
         <Stack align={'center'}>
           <Heading fontSize={'4xl'} textAlign={'center'}>
-            Sign up
+            Cadastre-se
           </Heading>
           <Text fontSize={'lg'} color={'gray.600'}>
-            to enjoy all of our cool features ✌️
+            e curta a nossa plataforma✌️
           </Text>
         </Stack>
         <Box
@@ -44,23 +44,23 @@ export default function SignUpComponent() {
             <HStack>
               <Box>
                 <FormControl id="firstName" isRequired>
-                  <FormLabel>First Name</FormLabel>
+                  <FormLabel>Primeiro Nome</FormLabel>
                   <Input type="text" />
                 </FormControl>
               </Box>
               <Box>
                 <FormControl id="lastName">
-                  <FormLabel>Last Name</FormLabel>
+                  <FormLabel>Nome do Meio</FormLabel>
                   <Input type="text" />
                 </FormControl>
               </Box>
             </HStack>
             <FormControl id="email" isRequired>
-              <FormLabel>Email address</FormLabel>
+              <FormLabel>Email</FormLabel>
               <Input type="email" />
             </FormControl>
             <FormControl id="password" isRequired>
-              <FormLabel>Password</FormLabel>
+              <FormLabel>Senha</FormLabel>
               <InputGroup>
                 <Input type={showPassword ? 'text' : 'password'} />
                 <InputRightElement h={'full'}>
@@ -76,17 +76,17 @@ export default function SignUpComponent() {
               <Button
                 loadingText="Submitting"
                 size="lg"
-                bg={'blue.400'}
+                bg={'green.400'}
                 color={'white'}
                 _hover={{
-                  bg: 'blue.500',
+                  bg: 'green.500',
                 }}>
-                Sign up
+                Cadastrar
               </Button>
             </Stack>
             <Stack pt={6}>
               <Text align={'center'}>
-                Already a user? <Link color={'blue.400'}>Login</Link>
+                Já possui conta? <Link href='/auth/signin' color={'green.400'}>Fazer Login</Link>
               </Text>
             </Stack>
           </Stack>
