@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { mockMembers } from '../../utils/mocks'
 import RootLayout from '../../components/layout/rootlayout'
-import { Box, Button, ButtonGroup, Card, CardBody, CardFooter, CardHeader, Divider, Image, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Stack, Text, Wrap, WrapItem, useDisclosure } from '@chakra-ui/react'
-import { DeleteIcon, EditIcon } from '@chakra-ui/icons'
+import { Box, Button, ButtonGroup, Card, CardBody, CardFooter, CardHeader, Divider, HStack, IconButton, Image, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Select, Stack, Text, VStack, Wrap, WrapItem, useDisclosure } from '@chakra-ui/react'
+import { DeleteIcon, EditIcon, AddIcon } from '@chakra-ui/icons'
 import { toast } from 'react-hot-toast'
 
 const MembersPage = () => {
@@ -10,6 +10,7 @@ const MembersPage = () => {
   const [members, setMembers] = useState([...mockMembers])
   const [member, setMember] = useState({})
   const [isOpen, setIsOpen] = useState(false)
+  const [openEditModal, setOpenEditModal] = useState(false)
   const [confirmDelete, setConfirmDelete] = useState(false)
 
   const onClickEdit = (member) => {
@@ -21,8 +22,16 @@ const MembersPage = () => {
     setIsOpen(true)
   }
 
+  const handleOpenEditModal = () => {
+    setOpenEditModal(true)
+  }
+
   const onCloseModal = () => {
     setIsOpen(false)
+  }
+
+  const onCloseEditModal = () => {
+    setOpenEditModal(false)
   }
 
   const onClickDelete = (idToRemove) => {
@@ -112,10 +121,21 @@ const MembersPage = () => {
                   </CardFooter>
                 </Card>
               </WrapItem>
-            )) :
-            <Text fontSize='small' color='gray.400'>
-              Nenhum membro cadastrado.
-            </Text>
+            ))
+            :
+            <Card>
+              <CardBody>
+                <HStack>
+                  <Text>Cadastrar Membro</Text>
+                  <IconButton onClick={handleOpenEditModal}>
+                    <AddIcon />
+                  </IconButton>
+                </HStack>
+              </CardBody>
+            </Card>
+            // <Text fontSize='small' color='gray.400'>
+            //   Nenhum membro cadastrado.
+            // </Text>
           }
         </Wrap>
       </Stack>
@@ -131,7 +151,6 @@ const MembersPage = () => {
               <Text fontSize='smaller'>{member?.profession}</Text>
             </Stack>
           </ModalBody>
-
           <ModalFooter>
             {
               confirmDelete ?
@@ -157,7 +176,47 @@ const MembersPage = () => {
                   Remover
                 </Button>
             }
-
+            <Button
+              variant='ghost'
+              fontSize='sm'
+              fontWeight='300'
+              onClick={onCloseModal}
+            >
+              Fechar
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+      <Modal isOpen={openEditModal} onClose={onCloseEditModal}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader fontSize='md'>Novo Membro</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <VStack spacing={2}>
+              <Input placeholder='Nome' />
+              <Input placeholder='Descrição' />
+              <Select placeholder='Tipo'>
+                <option value={'Pai'}>Pai</option>
+                <option value={'Mãe'}>Mãe</option>
+                <option value={'Filho'}>Filho</option>
+                <option value={'Filha'}>Filha</option>
+                <option value={'Outro'}>Outro</option>
+              </Select>
+              <input type='date' style={{ width: '98%' }} />
+            </VStack>
+          </ModalBody>
+          <ModalFooter>
+            <Button
+              colorScheme='red'
+              mr={3}
+              fontSize='sm'
+              fontWeight='300'
+              bgColor='red.400'
+              onClick={() => handleConfirmDelete()}
+            >
+              Remover
+            </Button>
             <Button
               variant='ghost'
               fontSize='sm'

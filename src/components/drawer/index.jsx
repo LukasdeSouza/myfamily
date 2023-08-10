@@ -102,7 +102,6 @@ const CustomDrawer = () => {
         </DrawerContent>
       </Drawer>
     </>
-
   )
 }
 
