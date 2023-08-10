@@ -1,16 +1,17 @@
+'use client'
+
 import {
   Button,
-  FormControl,
   Flex,
+  FormControl,
+  FormLabel,
   Heading,
   Input,
   Stack,
-  Text,
   useColorModeValue,
 } from '@chakra-ui/react'
 
-
-export default function ForgotPasswordComponent() {
+export default function NewPasswordComponent() {
   return (
     <Flex
       minH={'100vh'}
@@ -27,19 +28,19 @@ export default function ForgotPasswordComponent() {
         p={6}
         my={12}>
         <Heading lineHeight={1.1} fontSize={{ base: '2xl', md: '2xl' }}>
-          Esqueceu sua senha?
+          Digite uma Nova Senha
         </Heading>
-        <Text
-          fontSize={{ base: 'sm', sm: 'sm' }}
-          color={useColorModeValue('gray.800', 'gray.400')}>
-          Você receberá um link para resetar
-        </Text>
-        <FormControl id="email">
+        <FormControl id="email" isRequired>
+          <FormLabel fontSize={12}>Email</FormLabel>
           <Input
             placeholder="hogwarts@example.com"
             _placeholder={{ color: 'gray.500' }}
             type="email"
           />
+        </FormControl>
+        <FormControl id="password" isRequired>
+          <FormLabel fontSize={12}>Senha</FormLabel>
+          <Input type="password" />
         </FormControl>
         <Stack spacing={6}>
           <Button
@@ -48,7 +49,7 @@ export default function ForgotPasswordComponent() {
             _hover={{
               bg: 'green.500',
             }}>
-            Pedir Nova Senha
+            Submit
           </Button>
         </Stack>
       </Stack>
