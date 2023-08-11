@@ -14,7 +14,7 @@ import {
 } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 
-export default function SignInComponent() {
+export default function SignInComponent({ doLogin, onChangeEmail, onChangePassword }) {
   const navigate = useNavigate()
 
   return (
@@ -38,11 +38,11 @@ export default function SignInComponent() {
           <Stack spacing={4}>
             <FormControl id="email">
               <FormLabel>Email</FormLabel>
-              <Input type="email" />
+              <Input type="email" onChange={(e) => onChangeEmail(e.target.value)} />
             </FormControl>
             <FormControl id="password">
               <FormLabel>Senha</FormLabel>
-              <Input type="password" />
+              <Input type="password" onChange={(e) => onChangePassword(e.target.value)} />
             </FormControl>
             <Stack spacing={10}>
               <Stack
@@ -60,7 +60,9 @@ export default function SignInComponent() {
                 color={'white'}
                 _hover={{
                   bg: 'green.500',
-                }}>
+                }}
+                onClick={doLogin}
+              >
                 Entrar
               </Button>
             </Stack>
