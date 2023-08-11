@@ -8,6 +8,7 @@ const supabase = createClient(process.env.REACT_APP_SUPABASE_URL_API, process.en
 const SignInPage = () => {
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
+  const [loading, setLoading] = useState(false)
 
   const onChangeEmail = (email) => {
     setEmail(email)
@@ -17,12 +18,15 @@ const SignInPage = () => {
   }
 
   const doLogin = async () => {
+    setLoading(true)
     const { data, error } = await supabase.auth.signInWithPassword({ email: email, password: password })
-    console.log(data)
+    setLoading(false)
+
   }
 
   return (
     <SignInComponent
+      loading={loading}
       doLogin={doLogin}
       onChangeEmail={onChangeEmail}
       onChangePassword={onChangePassword}

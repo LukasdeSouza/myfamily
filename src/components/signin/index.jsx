@@ -14,7 +14,7 @@ import {
 } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 
-export default function SignInComponent({ doLogin, onChangeEmail, onChangePassword }) {
+export default function SignInComponent({ doLogin, onChangeEmail, onChangePassword, loading }) {
   const navigate = useNavigate()
 
   return (
@@ -56,6 +56,7 @@ export default function SignInComponent({ doLogin, onChangeEmail, onChangePasswo
                 </Text>
               </Stack>
               <Button
+                isLoading={loading}
                 bg={'green.400'}
                 color={'white'}
                 _hover={{
