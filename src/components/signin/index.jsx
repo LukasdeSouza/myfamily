@@ -10,6 +10,7 @@ import {
   Heading,
   Text,
   useColorModeValue,
+  Link,
 } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 
@@ -63,6 +64,9 @@ export default function SignInComponent() {
                 Entrar
               </Button>
             </Stack>
+            <Text align={'center'}>
+              Não possui conta? <Link href='/auth/signin' color={'green.400'}>Me Cadastrar</Link>
+            </Text>
           </Stack>
         </Box>
       </Stack>

@@ -69,7 +69,12 @@ export default function NavBarLandingPage() {
           justify={'flex-end'}
           direction={'row'}
           spacing={6}>
-          <Button as={'a'} fontSize={'sm'} fontWeight={400} variant={'link'}
+          <Button
+            as={'a'}
+            fontSize={'sm'}
+            fontWeight={400}
+            variant={'link'}
+            cursor={'pointer'}
             onClick={() => navigate('/auth/signin')}
           >
             Login
