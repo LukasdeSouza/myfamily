@@ -13,15 +13,16 @@ import {
   Link,
 } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
+import { handleOnKeyDown } from '../../utils/functions'
 
 export default function SignInComponent({ doLogin, onChangeEmail, onChangePassword, loading }) {
   const navigate = useNavigate()
 
-  const handleOnKeyDown = (e) => {
-    if (e.code === "Enter") {
-      doLogin()
-    }
-  }
+  // const handleOnKeyDown = (e) => {
+  //   if (e.code === "Enter") {
+  //     doLogin()
+  //   }
+  // }
 
   return (
     <Flex
@@ -42,8 +43,10 @@ export default function SignInComponent({ doLogin, onChangeEmail, onChangePasswo
           boxShadow={'lg'}
           p={8}
         >
-          <FormControl id="email"
-            onKeyDown={handleOnKeyDown}
+          <FormControl
+            id="email"
+            onKeyDown={(event) => handleOnKeyDown(event, doLogin)}
+            isRequired
           >
             <Stack spacing={4}>
               <Box>

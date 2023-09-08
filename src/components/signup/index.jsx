@@ -16,8 +16,9 @@ import {
 } from '@chakra-ui/react'
 import { useState } from 'react'
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
+import { handleOnKeyDown } from '../../utils/functions'
 
-export default function SignUpComponent() {
+export default function SignUpComponent({ doSignUp }) {
   const [showPassword, setShowPassword] = useState(false)
 
   return (
@@ -43,7 +44,11 @@ export default function SignUpComponent() {
           <Stack spacing={4}>
             <HStack>
               <Box>
-                <FormControl id="firstName" isRequired>
+                <FormControl
+                  id="firstName"
+                  onKeyDown={(event) => handleOnKeyDown(event, doSignUp)}
+                  isRequired
+                >
                   <FormLabel>Primeiro Nome</FormLabel>
                   <Input type="text" />
                 </FormControl>
