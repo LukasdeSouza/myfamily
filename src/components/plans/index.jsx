@@ -59,7 +59,7 @@ export default function PricingComponent() {
                 R$
               </Text>
               <Text fontSize="4xl" fontWeight="900">
-                20
+                0
               </Text>
               <Text fontSize="2xl" color="gray.500">
                 /mês
@@ -120,7 +120,7 @@ export default function PricingComponent() {
                   R$
                 </Text>
                 <Text fontSize="4xl" fontWeight="900">
-                  50
+                  20
                 </Text>
                 <Text fontSize="2xl" color="gray.500">
                   /mês
@@ -167,7 +167,7 @@ export default function PricingComponent() {
                 R$
               </Text>
               <Text fontSize="4xl" fontWeight="900">
-                90
+                50
               </Text>
               <Text fontSize="2xl" color="gray.500">
                 /mês

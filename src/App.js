@@ -18,6 +18,7 @@ import { useEffect, useState } from 'react';
 import { Auth } from '@supabase/auth-ui-react';
 import { ThemeSupa } from '@supabase/auth-ui-shared'
 import { Box, Stack } from '@chakra-ui/react';
+import { Toaster } from 'react-hot-toast';
 
 
 
@@ -59,6 +60,11 @@ function App() {
         <Route path='*' element={<Page404 />} />
 
       </Routes>
+      <Toaster
+        toastOptions={{
+          duration: 2500
+        }}
+      />
     </BrowserRouter>
     // }
     // </>

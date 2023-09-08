@@ -17,6 +17,12 @@ import { useNavigate } from 'react-router-dom'
 export default function SignInComponent({ doLogin, onChangeEmail, onChangePassword, loading }) {
   const navigate = useNavigate()
 
+  const handleOnKeyDown = (e) => {
+    if (e.code === "Enter") {
+      doLogin()
+    }
+  }
+
   return (
     <Flex
       minH={'100vh'}
@@ -34,43 +40,54 @@ export default function SignInComponent({ doLogin, onChangeEmail, onChangePasswo
           rounded={'lg'}
           bg={useColorModeValue('white', 'gray.700')}
           boxShadow={'lg'}
-          p={8}>
-          <Stack spacing={4}>
-            <FormControl id="email">
-              <FormLabel>Email</FormLabel>
-              <Input type="email" onChange={(e) => onChangeEmail(e.target.value)} />
-            </FormControl>
-            <FormControl id="password">
-              <FormLabel>Senha</FormLabel>
-              <Input type="password" onChange={(e) => onChangePassword(e.target.value)} />
-            </FormControl>
-            <Stack spacing={10}>
-              <Stack
-                direction={{ base: 'column', sm: 'row' }}
-                align={'start'}
-                justify={'space-between'}>
-                <Checkbox>Lembre-me</Checkbox>
-                <Text color={'green.400'} cursor={'pointer'}
-                  onClick={() => navigate('/auth/forgot-password')}>
-                  Esqueceu sua senha?
-                </Text>
+          p={8}
+        >
+          <FormControl id="email"
+            onKeyDown={handleOnKeyDown}
+          >
+            <Stack spacing={4}>
+              <Box>
+                <FormLabel>Email</FormLabel>
+                <Input type="email"
+                  onChange={(e) => onChangeEmail(e.target.value)}
+                />
+              </Box>
+              <Box>
+                <FormLabel>Senha</FormLabel>
+                <Input type="password"
+                  onChange={(e) => onChangePassword(e.target.value)}
+                />
+              </Box>
+              <Stack spacing={10}>
+                <Stack
+                  direction={{ base: 'column', sm: 'row' }}
+                  align={'start'}
+                  justify={'space-between'}>
+                  <Checkbox>Lembre-me</Checkbox>
+                  <Text color={'green.400'} cursor={'pointer'}
+                    onClick={() => navigate('/auth/forgot-password')}>
+                    Esqueceu sua senha?
+                  </Text>
+                </Stack>
+                <Button
+                  type='submit'
+                  isLoading={loading}
+                  bg={'green.400'}
+                  color={'white'}
+                  _hover={{
+                    bg: 'green.500',
+                  }}
+                  onClick={doLogin}
+                >
+                  Entrar
+                </Button>
               </Stack>
-              <Button
-                isLoading={loading}
-                bg={'green.400'}
-                color={'white'}
-                _hover={{
-                  bg: 'green.500',
-                }}
-                onClick={doLogin}
-              >
-                Entrar
-              </Button>
+              <Text align={'center'}>
+                Não possui conta? <Link href='/auth/signup' color={'green.400'}>Me Cadastrar</Link>
+              </Text>
             </Stack>
-            <Text align={'center'}>
-              Não possui conta? <Link href='/auth/signin' color={'green.400'}>Me Cadastrar</Link>
-            </Text>
-          </Stack>
+          </FormControl>
+
         </Box>
       </Stack>
     </Flex>
