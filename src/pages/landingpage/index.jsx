@@ -19,6 +19,7 @@ import FooterComponent from '../../components/footer'
 import GridComponent from '../../components/grid'
 import FeatureComponent from '../../components/feature'
 import PricingComponent from '../../components/plans'
+import { useNavigate } from 'react-router-dom'
 
 const Feature = ({ title, text, icon }) => {
   return (
@@ -41,6 +42,8 @@ const Feature = ({ title, text, icon }) => {
 }
 
 export default function LandingPage() {
+  const navigate = useNavigate()
+
   return (
     <>
       <NavBarLandingPage />
@@ -75,7 +78,9 @@ export default function LandingPage() {
               px={6}
               _hover={{
                 bg: 'green.500',
-              }}>
+              }}
+              onClick={() => navigate('/auth/signup')}
+            >
               Começar
             </Button>
             <Button variant={'link'} colorScheme={'gray'} size={'sm'}>
